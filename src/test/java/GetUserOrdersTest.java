@@ -1,5 +1,5 @@
-import Api.OrderApi;
-import Api.UserApi;
+import api.OrderApi;
+import api.UserApi;
 import data.UserData;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;

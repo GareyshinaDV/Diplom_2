@@ -1,4 +1,4 @@
-package Api;
+package api;
 
 import data.Order;
 import io.qameta.allure.Step;
@@ -11,9 +11,14 @@ import static io.restassured.RestAssured.given;
 public class OrderApi extends Order {
 
     private static String ORDER_ENDPOINT = "api/orders";
+    private static String INGREDIENTS_ENDPOINT = "/api/ingredients";
 
     public OrderApi(ArrayList<String> ingredients) {
         super(ingredients);
+    }
+
+    public OrderApi() {
+
     }
 
     @Step("Создание заказа с авторизацией")
@@ -55,4 +60,12 @@ public class OrderApi extends Order {
                 .get(ORDER_ENDPOINT);
         return response;
     }
+
+    @Step("Получение данных об ингредиентах")
+    public static Response getIngredients(){
+        Response response = given().log().all()
+                .get(INGREDIENTS_ENDPOINT);
+        return response;
+    }
+
 }

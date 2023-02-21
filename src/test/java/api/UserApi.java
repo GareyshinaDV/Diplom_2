@@ -1,4 +1,4 @@
-package Api;
+package api;
 
 import data.User;
 import io.qameta.allure.Step;

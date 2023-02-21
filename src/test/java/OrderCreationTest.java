@@ -1,5 +1,5 @@
-import Api.OrderApi;
-import Api.UserApi;
+import api.OrderApi;
+import api.UserApi;
 import data.UserData;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -30,9 +30,9 @@ public class OrderCreationTest extends BaseTest {
     public void creationNewOrderWithAuthTest() {
 
         ArrayList<String> ingredients = new ArrayList<>();;
-        ingredients.add(hashBun);
-        ingredients.add(hashSouse);
-        ingredients.add(hashFilling);
+        ingredients.add(hashIngredientOne);
+        ingredients.add(hashIngredientTwo);
+        ingredients.add(hashIngredientThree);
         OrderApi order = new OrderApi(ingredients);
         Response response = order.creationOfOrderWithAuth(order, token);
                  response.then().assertThat().body("success", equalTo(true))
@@ -46,9 +46,9 @@ public class OrderCreationTest extends BaseTest {
     public void creationNewOrderWithoutAuthTest() {
 
         ArrayList<String> ingredients = new ArrayList<>();;
-        ingredients.add(hashBun);
-        ingredients.add(hashSouse);
-        ingredients.add(hashFilling);
+        ingredients.add(hashIngredientOne);
+        ingredients.add(hashIngredientTwo);
+        ingredients.add(hashIngredientThree);
         OrderApi order = new OrderApi(ingredients);
         Response response = order.creationOfOrderWithoutAuth(order);
         response.then().assertThat().body("success", equalTo(true))
